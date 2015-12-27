@@ -3,13 +3,33 @@ body {
   text-align:center;
 }
 
-.image {
-  width:50%;
+.background {
+  black;
 }
 
-.button {
-  margin:2px;
+.home-slide {
+  height: 400px;
 }
+
+
+
+.image {
+  width:75%;
+  border: 10px solid black;
+}
+
+.image-wrapper {
+  height: 50%;
+}
+
+.card {
+  margin: 0;
+}
+
+.item-text-wrap {
+  background: #ECF0F1;
+}
+
 
 .win {
   color: #98E19A;
@@ -21,10 +41,12 @@ body {
 
 .key {
   text-transform: uppercase;
+  margin: 1px;
 }
 
 .guess {
   text-transform: uppercase;
+  margin: 1px;
 }
 
 .table {
