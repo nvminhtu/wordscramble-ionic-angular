@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/gameCtrl.js"></script>
+    <script src="js/levels.js"></script>
+  </head>
+  <body ng-app="starter">
+    <ion-pane ng-controller="GameCtrl">
+      <ion-header-bar class="bar-stable" ng-model="currentLevel()">
+        <h1 class="title">
+          <i class="coin icon ion-trophy"></i> {{currentLevel+1}} <i class="win icon ion-checkmark-circled" ng-if="isCorrect"></i>
+        </h1>
+        <button class="button">
+          <i class="coin icon ion-ios-circle-filled"></i>
+          {{score}}
+        </button>
+      </ion-header-bar>
+
+      <ion-content>
+      <div class="card" ng-show="isPlaying">
+        <div class="item item-divider">
+          <img class="image padding" src="https://logo.clearbit.com/{{domain}}">
+        </div>
+        <div class="item item-text-wrap">
+          <div class="guess button button-small button-royal" ng-repeat="guess in guesses track by $index" ng-click="removeGuess(guess)">
+            {{guess}}
+          </div>
+        </div>
+        <div class="item item-divider">
+          <div class="item item-text-wrap">
+            <div class="key button button-large button-dark" ng-repeat="key in keys track by $index" ng-click="addLetter(key) ">
+              {{key}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <button class="button button-small button-energized" ng-click="clearBoard()" ng-show="isPlaying==true &amp;&amp; isCorrect===false">
+      Reset Board
+    </button>
+
+    <button class="button button-small button-balanced icon-right ion-chevron-right" ng-click="nextLevel()">
+      Reveal
+    </button>
+
+
+    <div class="welcome" ng-hide="isPlaying">
+      <h1>Guess the Start Up!</h1>
+      <button class="button button-full button-balanced" ng-click="clearBoard()">
+        Let&apos;s Play!
+      </button>
+    </div>
+
+
+
+    <button class="button button-full button-balanced icon-right ion-chevron-right" ng-click="nextLevel()" ng-if="isCorrect">
+      You got it! Next Level
+    </button>
+
+    <div class="bar bar-footer bar-balanced">
+  <div class="title">Footer</div>
+</div>
+
+    </ion-content>
+    </ion-pane>
+  </body>
+</html>

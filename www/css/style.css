@@ -1,0 +1,34 @@
+/* Empty. Add your own CSS if you like */
+body {
+  text-align:center;
+}
+
+.image {
+  width:50%;
+}
+
+.button {
+  margin:2px;
+}
+
+.win {
+  color: #98E19A;
+}
+
+.coin {
+  color: #F8C957;
+}
+
+.key {
+  text-transform: uppercase;
+}
+
+.guess {
+  text-transform: uppercase;
+}
+
+.table {
+  width: 100%;
+  background: black;
+  color: white;
+}
